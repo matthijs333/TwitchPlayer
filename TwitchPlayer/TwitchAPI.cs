@@ -58,7 +58,7 @@ namespace TwitchPlayer
             return @"https://api.twitch.tv/kraken/streams?game=" + Game + @"&limit=" + Limit;
         }
     }
-    class gamesResponse
+    public class gamesResponse
     {
         public class Rootobject
         {
@@ -110,7 +110,7 @@ namespace TwitchPlayer
         {
         }
     }
-    class ChannelResponse
+    public class ChannelResponse
     {
 
         public class Channel
@@ -154,7 +154,7 @@ namespace TwitchPlayer
         }
 
     }
-    class StreamsResponse
+    public class StreamsResponse
     {
 
         public class Rootobject

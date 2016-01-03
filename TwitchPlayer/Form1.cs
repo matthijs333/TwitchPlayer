@@ -16,6 +16,8 @@ namespace TwitchPlayer
         public Form1()
         {
             InitializeComponent();
+            Chat newChat = new Chat("abfnggshka");
+            newChat.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)

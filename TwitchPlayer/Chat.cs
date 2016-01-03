@@ -17,13 +17,13 @@ namespace TwitchPlayer
         {
             InitializeComponent();
             webBrowser1.Url = new Uri("http://www.twitch.tv/" + Name + "/chat?popout=");
-          // trackBar1.Value = Transparancy;
-           // this.Opacity = Convert.ToDouble(Transparancy, NumberFormatInfo.InvariantInfo);
+            trackBar1.Value = Transparancy;
+            this.Opacity = Convert.ToDouble(Transparancy, NumberFormatInfo.InvariantInfo) / 100;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-          this.Opacity = Convert.ToDouble(trackBar1.Value, NumberFormatInfo.InvariantInfo);
+            this.Opacity = Convert.ToDouble(trackBar1.Value, NumberFormatInfo.InvariantInfo) / 100;
         }
     }
 }

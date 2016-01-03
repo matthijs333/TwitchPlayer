@@ -16,22 +16,22 @@ namespace TwitchPlayer
         public Form1()
         {
             InitializeComponent();
-            Chat newChat = new Chat("abfnggshka");
-            newChat.Show();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {     
+        {
             List<gamesResponse.Game> Games = myAPI.GetTopGames(30);
             List<StreamsResponse.Stream> Streams = myAPI.GetStreams(Games[0].name);
 
-            Display.DrawGames(flowLayoutPanel1, dataGridView1, Games);
-           dataGridView1.DrawStreams(Streams);
+            Display.DrawGames(GamesView, StreamsView, Games);
+            StreamsView.DrawStreams(Streams);
+            StreamsContextMenu ContextMenu = new StreamsContextMenu(StreamsView);
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow Row = dataGridView1.Rows[e.RowIndex];
+            DataGridViewRow Row = StreamsView.Rows[e.RowIndex];
             StreamsResponse.Stream Stream = (StreamsResponse.Stream)Row.Tag;
             LiveStreamerAPI.StartStream(Stream.channel.name, LiveStreamerAPI.StreamQuality.best);
         }
